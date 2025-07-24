@@ -67,7 +67,7 @@ const components: { title: string; href: string; description: string }[] = [
 export default function DesktopNav() {
     const navLinks = useNavigation()
   return (
-    <div className="flex justify-between gap-2 text-[#194185] w-full px-7 py-5">
+    <div className="flex justify-between gap-2 text-[#194185] w-full px-7 py-5 shadow">
         <Link href="/">
         <figure className="flex gap-2">
             <Image src={`/logo.png`} alt="logo" width={200} height={200} priority className="size-6" />
