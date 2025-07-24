@@ -80,7 +80,10 @@ export default function DesktopNav() {
         <NavigationMenuItem key={link.name}>
           {link.children && link.children?.length >= 1?
           <>
-          <NavigationMenuTrigger className="hover:border-b-2 rounded-b-none border-solid border-[#194185]">{link.name}</NavigationMenuTrigger>
+          <NavigationMenuTrigger
+           className="hover:border-b-2 rounded-b-none border-solid border-[#194185]">
+            {link.name}
+          </NavigationMenuTrigger>
           <NavigationMenuContent className="">
             <ul className="grid w-[200px]">
                 {link.children.map((child) => (

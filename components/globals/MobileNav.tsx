@@ -1,8 +1,86 @@
-import React from 'react'
+"use client"
+
+import * as React from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { AlignJustify } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  Sheet,
+  SheetTrigger,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+} from "@/components/ui/sheet";
+import {useNavigation} from "@/hooks/useNavigation";
 
 const MobileNav = () => {
+   const navLinks = useNavigation();
+  const [open, setOpen] = React.useState(false);
+
   return (
-    <div>MobileNav</div>
+    <div className="flex items-center justify-between w-full px-4 py-4 lg:hidden">
+      {/* Logo */}
+       <Link href="/">
+        <figure className="flex gap-2">
+        <span className="sr-only">Home</span>
+            <Image src={`/logo.png`} alt="logo" width={200} height={200} priority className="size-6" />
+            <figcaption className="font-plus-jakarta-sans font-semibold text-xl whitespace-nowrap">City Bus Transit</figcaption>
+        </figure>
+        </Link>
+
+
+      <Sheet open={open} onOpenChange={setOpen}>
+        <SheetTrigger asChild>
+          <Button variant="ghost" size="icon" className="p-2 bg-citybus-primary text-white ">
+            <AlignJustify className="size-7" />
+            <span className="sr-only">Open menu</span>
+          </Button>
+        </SheetTrigger>
+
+        <SheetContent
+          side="right"
+          className="flex flex-col space-y-8 pt-10 w-[60%] sm:w-2/5 overflow-y-auto bg-white"
+        >
+
+          <SheetHeader>
+            <SheetTitle className="sr-only">Main navigation</SheetTitle>
+          </SheetHeader>
+
+
+          <nav className="flex flex-col gap-6 text-lg px-4">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setOpen(false)}
+                className={`${link.active
+                    ? "text-talentpro-brown font-bold"
+                    : "hover:font-semibold"
+                  } transition-colors duration-300`}
+              >
+                {link.name}
+              </Link>
+            ))}
+          </nav>
+
+
+          {/* <div className="mt-auto flex flex-col gap-4 px-4">
+            <Link href="/sign-in" onClick={() => setOpen(false)}>
+              <Button variant="outline" className="w-full rounded-full !shadow-none">
+                Sign in
+              </Button>
+            </Link>
+
+            <Link href="/sign-up" onClick={() => setOpen(false)}>
+              <Button className="w-full bg-talentpro-brown rounded-full">
+                Get Started
+              </Button>
+            </Link>
+          </div> */}
+        </SheetContent>
+      </Sheet>
+    </div>
   )
 }
 
