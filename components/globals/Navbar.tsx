@@ -4,7 +4,7 @@ import MobileNav from './MobileNav'
 
 const Navbar = () => {
   return (
-    <nav>
+    <nav className='container mx-auto'>
         <div className='lg:flex hidden'>
             <DesktopNav />
         </div>

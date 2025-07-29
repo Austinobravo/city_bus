@@ -4,7 +4,7 @@ import HomeHeroForm from './HomeHeroForm'
 
 const HomeHero = () => {
   return (
-    <section className='flex not-lg:flex-wrap gap-5 px-7 py-10'>
+    <section className='flex not-lg:flex-wrap gap-5 px-7 py-10 container mx-auto'>
         <div className='lg:w-1/2'>
             <h1 className='lg:text-4xl text-2xl font-semibold text-gray-700'>Wherever you’re headed in Owerri, City Bus will take you there.</h1>
             <HomeHeroForm />
