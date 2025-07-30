@@ -56,7 +56,7 @@ const PopularDestinations = () => {
         </div>
         <div>
             <Tabs defaultValue="all" className="">
-            <TabsList className='gap-2 bg-transparent '>
+            <TabsList className='gap-2 bg-transparent my-5'>
                 <TabsTrigger value="all" className='rounded-2xl data-[state=inactive]:bg-muted py-4 px-6 data-[state=active]:bg-citybus-primary data-[state=active]:text-white'>All</TabsTrigger>
                 <TabsTrigger value="places" className='rounded-2xl data-[state=inactive]:bg-muted py-4 px-6 data-[state=active]:bg-citybus-primary data-[state=active]:text-white'>Places</TabsTrigger>
                 <TabsTrigger value="connections" className='rounded-2xl data-[state=inactive]:bg-muted py-4 px-6 data-[state=active]:bg-citybus-primary data-[state=active]:text-white'>Connections</TabsTrigger>

@@ -112,14 +112,14 @@ const ExploreTickets = () => {
                 </Link>
             
                       ))}
-                      <Link href={``} className='flex gap-3 justify-center  items-center'>
+                      <Link href={``} className='flex gap-3 justify-center py-5 items-center'>
                         <h2>Explore All Tickets</h2>
                         <ArrowRight />
                       </Link>
         </div>
-        <div className='py-9 flex gap-3'>
-            <div className='lg:w-3/5 flex gap-6'>
-                <div className='divide-y divide-solid'>
+        <div className='py-9 flex gap-x-3 not-lg:flex-wrap w-full gap-y-7'>
+            <div className='lg:w-3/5 flex gap-x-6 gap-y-10 not-lg:flex-wrap '>
+                <div className='divide-y divide-solid w-full'>
                 {favoritePlaces.map((item, index) =>(
                     <div key={index}>
                         <div className='text-xl font-medium text-gray-800 flex gap-2 items-center py-2'>
@@ -158,7 +158,7 @@ const ExploreTickets = () => {
                 ))}
 
                 </div>
-                <div className='divide-y divide-solid'>
+                <div className='divide-y divide-solid w-full'>
                     {favoriteServices.map((item, index) =>(
                         <div key={index}>
                             <div className='text-xl font-medium text-gray-800 flex gap-2 items-center py-2'>
@@ -193,8 +193,8 @@ const ExploreTickets = () => {
                 </div>
 
             </div>
-            <div className='lg:w-2/5'>
-                <Image src={`/TicketBanner.png`} width={500} height={200} alt='' />
+            <div className='lg:w-2/5 w-full'>
+                <Image src={`/TicketBanner.png`} width={500} height={200} alt='' className='w-full'/>
             </div>
 
         </div>

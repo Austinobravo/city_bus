@@ -3,14 +3,14 @@ import React from 'react'
 
 const DownloadApp = () => {
   return (
-    <section className='container mx-auto my-10 px-7 flex items-center'>
+    <section className='container mx-auto my-10 px-7 flex items-center not-sm:flex-wrap gap-6'>
         <div className='space-y-5 lg:w-1/2'>
             <h3 className='lg:text-5xl text-3xl font-semibold text-gray-800'>Download our app</h3>
             <h4 className='lg:text-2xl text-lg font-medium text-gray-700'>Your City, Your Ride — Always with You</h4>
             <p className='lg:text-lg text-sm text-gray-500'>Plan your trips, buy tickets, and track your bus in real-time — all from your phone. Get the CBT app and move smarter across Owerri.</p>
             <div className='flex gap-3 items-center mt-10'>
-                <Image src={`/ios.png`} width={500} height={200} alt='IOS image' priority  className='h-16 w-46 object-cover hover:scale-105 aspect-auto transition-all duration-500'/>
-                <Image src={`/app.png`} width={500} height={200} alt='Google Play image' className='h-16 w-46 object-cover hover:scale-105 aspect-auto transition-all duration-500'/>
+                <Image src={`/ios.png`} width={500} height={200} alt='IOS image' priority  className='sm:h-16 sm:w-46 h-10 w-26 object-fit hover:scale-105 aspect-auto transition-all duration-500'/>
+                <Image src={`/app.png`} width={500} height={200} alt='Google Play image' className='sm:h-16 sm:w-46 h-10 w-26 object-fit hover:scale-105 aspect-auto transition-all duration-500'/>
             </div>
         </div>
         <div className='lg:w-1/2'>

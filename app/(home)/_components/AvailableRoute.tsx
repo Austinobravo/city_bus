@@ -47,7 +47,7 @@ const data = [
 const AvailableRoute = () => {
   return (
     <section className='container px-7 mx-auto'>
-        <div className='flex items-end justify-between py-5'>
+        <div className='flex items-end justify-between py-5 not-sm:flex-wrap gap-5'>
             <div>
                 <h2 className='font-medium lg:text-3xl text-xl text-gray-700'>Available Routes</h2>
                 <p className='text-gray-500 text-sm'>Choose from our currently operating bus routes</p>

@@ -103,7 +103,7 @@ export default function HomeHeroForm() {
                     <Button
                       variant={"outline"}
                       className={cn(
-                        " font-normal bg-gray-200 w-full flex items-center justify-center",
+                        " font-normal bg-gray-200 w-full flex items-center justify-center min-h-14 rounded-2xl",
                         !field.value && "text-muted-foreground"
                       )}
                     >
@@ -143,7 +143,7 @@ export default function HomeHeroForm() {
                     <FormLabel></FormLabel>
                     <Select onValueChange={field.onChange} defaultValue={field.value}>
                         <FormControl>
-                            <div className="flex bg-gray-200 rounded-md items-center px-2 w-full">
+                            <div className="flex bg-gray-200 rounded-md items-center px-2 w-full min-h-14">
                             <Clock4 className="opacity-50 size-4" />
                             <SelectTrigger className="border-0 flex-1">
                                 <SelectValue placeholder="Now" />
@@ -171,7 +171,7 @@ export default function HomeHeroForm() {
                     <FormLabel></FormLabel>
                     <Select onValueChange={field.onChange} defaultValue={field.value} >
                         <FormControl >
-                        <SelectTrigger className="w-full">
+                        <SelectTrigger className="w-full min-h-14">
                             <SelectValue placeholder="How many passengers?" className="w-full"/>
                         </SelectTrigger>
                         </FormControl>
