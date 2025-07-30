@@ -112,7 +112,7 @@ const ExploreTickets = () => {
                 </Link>
             
                       ))}
-                      <Link href={``} className='flex gap-3 justify-center py-5 items-center'>
+                      <Link href={`/see-all-tickets`} className='flex gap-3 justify-center py-5 items-center'>
                         <h2>Explore All Tickets</h2>
                         <ArrowRight />
                       </Link>
