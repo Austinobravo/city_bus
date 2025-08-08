@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/card"
 import { ArrowRight, ChevronLeft, ChevronRight, Clock5, Users } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
-import { formatNaira } from '@/lib/utils'
+import { formatToNaira } from '@/lib/utils'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 
@@ -96,7 +96,7 @@ const AvailableRoute = () => {
             <CardFooter className=''>
               <div className='flex justify-between w-full'>
                 <div>
-                  <h3 className='text-xl font-medium'>{formatNaira(item.totalCost)}</h3>
+                  <h3 className='text-xl font-medium'>{formatToNaira(item.totalCost)}</h3>
                   <h4 className='text-xs text-gray-600'>per passenger</h4>
                 </div>
                 <Link href={item.url} className=''>

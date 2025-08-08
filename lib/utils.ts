@@ -9,7 +9,7 @@ export const validateForEmptySpaces = (value: string) => {
     return value.trim().length >= 1
 }
 
-export function formatNaira(amount: unknown): string {
+export function formatToNaira(amount: unknown): string {
   let numericAmount: number;
 
   if (typeof amount === "number") {

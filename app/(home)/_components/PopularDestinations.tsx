@@ -9,7 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { formatNaira } from '@/lib/utils'
+import { formatToNaira } from '@/lib/utils'
 import { Star } from 'lucide-react'
 import { Separator } from '@/components/ui/separator'
 import Link from 'next/link'
@@ -76,7 +76,7 @@ const PopularDestinations = () => {
                                 <h3 className='text-gray-700 font-semibold'>{item.heading}</h3>
                                 <span className='text-gray-400 text-sm'>Location</span>
                             </div>
-                            <p className='font-semibold'>{formatNaira(item.totalCost)}</p>
+                            <p className='font-semibold'>{formatToNaira(item.totalCost)}</p>
 
                         </div>
                     <Separator />
@@ -108,7 +108,7 @@ const PopularDestinations = () => {
                                 <h3 className='text-gray-700 font-semibold'>{item.heading}</h3>
                                 <span className='text-gray-400 text-sm'>Location</span>
                             </div>
-                            <p className='font-semibold'>{formatNaira(item.totalCost)}</p>
+                            <p className='font-semibold'>{formatToNaira(item.totalCost)}</p>
 
                         </div>
                     <Separator />
@@ -140,7 +140,7 @@ const PopularDestinations = () => {
                                 <h3 className='text-gray-700 font-semibold'>{item.heading}</h3>
                                 <span className='text-gray-400 text-sm'>Location</span>
                             </div>
-                            <p className='font-semibold'>{formatNaira(item.totalCost)}</p>
+                            <p className='font-semibold'>{formatToNaira(item.totalCost)}</p>
 
                         </div>
                     <Separator />
