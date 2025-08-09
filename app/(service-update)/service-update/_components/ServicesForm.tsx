@@ -21,7 +21,7 @@ import { useState } from "react"
 
 const FormSchema = z.object({
   search1: z.string().optional(),
-  search2: z.string().optional(),
+//   search2: z.string().optional(),
 })
 
 export default function ServicesForm() {
@@ -29,7 +29,7 @@ export default function ServicesForm() {
     resolver: zodResolver(FormSchema),
     defaultValues: {
       search1: "",
-      search2: "",
+    //   search2: "",
     },
   })
 
@@ -58,7 +58,7 @@ export default function ServicesForm() {
             ),
           })
         })}
-        className="w-2/3 space-y-4"
+        className=" space-y-4"
       >
         {/* First Input */}
         <FormField
@@ -69,14 +69,14 @@ export default function ServicesForm() {
             return (
               <FormItem className="flex items-center gap-2 border border-solid bg-gray-100 rounded-lg px-2 min-h-14">
                 <RadioGroup value={isChecked ? "checked" : ""}>
-                  <RadioGroupItem value="checked" id="radio-search1" />
+                  <RadioGroupItem value="checked" id="radio-search1" className="border-neutral-900 border-2"/>
                 </RadioGroup>
 
                 <FormControl>
                   <Input
-                    placeholder="Search 1..."
+                    placeholder="Search by location, bus route or description..."
                     {...field}
-                    className="border-0 shadow-none focus-visible:ring-0 outline-none"
+                    className="border-0 shadow-none focus-visible:ring-0 outline-none placeholder:text-gray-400"
                     onFocus={() => setActive((prev) => ({ ...prev, search1: true }))}
                     onBlur={(e) => {
                       if (!e.target.value) {
@@ -109,9 +109,15 @@ export default function ServicesForm() {
             )
           }}
         />
+        <div className="flex gap-x-2 gap-y-4 items-center flex-wrap">
+            <h3 className="text-xl font-medium text-gray-700">Quick Dates:</h3>
+            <button className="bg-gray-100 rounded-lg font-medium text-gray-500 px-4 py-2">Today</button>
+            <button className="bg-gray-100 rounded-lg font-medium text-gray-500 px-4 py-2">Tomorrow</button>
+            <button className="bg-gray-100 rounded-lg font-medium text-gray-500 px-4 py-2">This Week</button>
+        </div>
 
         {/* Second Input */}
-        <FormField
+        {/* <FormField
           control={form.control}
           name="search2"
           render={({ field }) => {
@@ -160,7 +166,7 @@ export default function ServicesForm() {
           }}
         />
 
-        <Button type="submit">Submit All</Button>
+        <Button type="submit">Submit All</Button> */}
       </form>
     </Form>
   )
