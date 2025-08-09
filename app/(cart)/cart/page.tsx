@@ -199,7 +199,7 @@ const CartPage = () => {
 
                         </div>
                           <Dialog>
-                            <DialogTrigger className='bg-citybus-primary cursor-pointer w-full text-sm font-medium text-white min-h-14 rounded-lg sm:min-w-60'>Checkout</DialogTrigger>
+                            <DialogTrigger className='bg-citybus-primary cursor-pointer w-full text-sm font-medium text-white min-h-14 rounded-lg sm:w-60'>Checkout</DialogTrigger>
                             <DialogContent>
                                 <DialogHeader>
                                 <DialogTitle>Are you absolutely sure?</DialogTitle>
