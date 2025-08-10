@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/globals/Navbar";
 import Footer from "@/components/globals/Footer";
+import "react-phone-number-input/style.css"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
