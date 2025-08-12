@@ -18,6 +18,7 @@ import {
 import { Input } from "@/components/ui/input"
 import PhoneInput from 'react-phone-number-input'
 import { Textarea } from "@/components/ui/textarea"
+import { Loader2 } from "lucide-react"
  
 
 const FormSchema = z.object({
@@ -50,7 +51,7 @@ export function ContactUsForm() {
     },
   })
 
-  function onSubmit(data: z.infer<typeof FormSchema>) {
+  async function onSubmit(data: z.infer<typeof FormSchema>) {
     toast("You submitted the following values", {
       description: (
         <pre className="mt-2 w-[320px] rounded-md bg-neutral-950 p-4">
@@ -59,6 +60,8 @@ export function ContactUsForm() {
       ),
     })
   }
+
+  const isSubmitting = form.formState.isSubmitting
 
   return (
     <Form {...form}>
@@ -69,7 +72,7 @@ export function ContactUsForm() {
           name="firstName"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>First Name</FormLabel>
+              <FormLabel className="!text-black">First Name</FormLabel>
               <FormControl>
                 <Input placeholder="First Name" {...field} className="bg-[#FCFCFC] text-gray-400 focus-visible:ring-0 min-h-18"/>
               </FormControl>
@@ -85,7 +88,7 @@ export function ContactUsForm() {
           name="lastName"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Last Name</FormLabel>
+              <FormLabel className="!text-black">Last Name</FormLabel>
               <FormControl>
                 <Input placeholder="Last Name" {...field} className="bg-[#FCFCFC] text-gray-400 focus-visible:ring-0 min-h-18"/>
               </FormControl>
@@ -103,7 +106,7 @@ export function ContactUsForm() {
         name="email"
         render={({ field }) => (
         <FormItem>
-            <FormLabel>Email</FormLabel>
+            <FormLabel className="!text-black">Email</FormLabel>
             <FormControl>
             <Input type="email" placeholder="you@company.com" {...field} className="bg-[#FCFCFC] text-gray-400 focus-visible:ring-0 min-h-18"/>
             </FormControl>
@@ -116,10 +119,10 @@ export function ContactUsForm() {
     />
     <FormField
         control={form.control}
-        name="email"
+        name="phone"
         render={({ field }) => (
         <FormItem>
-            <FormLabel>Email</FormLabel>
+            <FormLabel className="!text-black">Phone number</FormLabel>
             <FormControl>
             <PhoneInput international   defaultCountry={'NG'} style={{"fontSize": "0.9rem"}} placeholder="Enter number" {...field} className="bg-[#FCFCFC] text-gray-400 focus-visible:!ring-offset-0 focus-visible:!ring-0 focus:ring-0 focus:!ring-offset-0 focus-visible:border shadow border-[#C4C4C4] px-2 rounded-lg w-full min-h-18 outline-none"/>
 
@@ -133,10 +136,10 @@ export function ContactUsForm() {
     />
        <FormField
         control={form.control}
-        name="email"
+        name="message"
         render={({ field }) => (
         <FormItem>
-            <FormLabel>Email</FormLabel>
+            <FormLabel className="!text-black">Message</FormLabel>
             <FormControl>
             <Textarea  placeholder="Leave us a message" {...field} className="bg-[#FCFCFC] min-h-40 text-gray-400 focus-visible:ring-0"/>
             </FormControl>
@@ -147,7 +150,7 @@ export function ContactUsForm() {
         </FormItem>
         )}
     />
-        <Button type="submit">Submit</Button>
+        <Button type="submit" className="min-h-14 bg-citybus-primary w-full disabled:cursor-not-allowed cursor-pointer disabled:opacity-50" disabled={isSubmitting}>{isSubmitting ? <div><Loader2  className="animate-spin "/></div> : "Send Message"}</Button>
       </form>
     </Form>
   )

@@ -179,3 +179,15 @@
     -ms-overflow-style: none;
   }
 }
+
+.PhoneInput input {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  min-height: 54px;
+}
+.PhoneInput input:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}

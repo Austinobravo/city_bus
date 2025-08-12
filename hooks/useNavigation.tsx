@@ -28,8 +28,8 @@ export const useNavigation = () => {
         },
         {
             name: "Buy Tickets",
-            href: "/buys-tickets",
-            active: pathname.startsWith("/buys-tickets"),
+            href: "/buy-tickets",
+            active: pathname.startsWith("/buy-tickets"),
             children: [
                 {
                     title: "Buy for self",
@@ -58,15 +58,15 @@ export const useNavigation = () => {
             children: [
                 {
                     title: "FAQS",
-                    href: ""
+                    href: "faqs"
                 },
                 {
                     title: "Contact Us",
-                    href: ""
+                    href: "contact-us"
                 },
                 {
                     title: "Accessibility",
-                    href: ""
+                    href: "accessibility"
                 },
                 {
                     title: "Safety & Security",
