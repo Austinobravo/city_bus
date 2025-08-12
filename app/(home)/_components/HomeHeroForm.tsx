@@ -24,7 +24,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import Link from "next/link"
-import { Clock4 } from "lucide-react"
+import { ArrowDownUp, Clock4, X } from "lucide-react"
 import {
   Popover,
   PopoverContent,
@@ -35,6 +35,11 @@ import { toast } from "sonner"
 import { cn } from "@/lib/utils"
 import { Calendar } from "@/components/ui/calendar"
 import { format } from "date-fns"
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+import { FaLocationArrow } from "react-icons/fa"
+import React from "react"
+
+
 export default function HomeHeroForm() {
 
       // 1. Define your form.
@@ -57,40 +62,128 @@ export default function HomeHeroForm() {
   }
   // ...
 
+  
+    const [active, setActive] = React.useState<{ [key: string]: boolean }>({})
+  
+    const handleSingleSubmit = (name: keyof z.infer<typeof HomeHeroFormSchema>, value: string) => {
+      toast(`Submitted ${name}`, {
+        description: value || "(empty)",
+      })
+    }
+  
+    const handleClear = (name: keyof z.infer<typeof HomeHeroFormSchema>) => {
+      form.setValue(name, "")
+      setActive((prev) => ({ ...prev, [name]: false }))
+    }
+  
+
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="">
-        <FormField
-          control={form.control}
-          name="from"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel></FormLabel>
-              <FormControl>
-                <Input placeholder="e.g Douglas Road" {...field} className="min-h-14 bg-gray-200 rounded-2xl"/>
-              </FormControl>
-              <FormDescription>
-              </FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="to"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel></FormLabel>
-              <FormControl>
-                <Input placeholder="e.g World Bank Road" {...field} className="min-h-14 bg-gray-200 rounded-2xl"/>
-              </FormControl>
-              <FormDescription>
-              </FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <div className="flex not-lg:flex-wrap gap-5 items-center">
+        <div className="space-y-3 relative">
+         <FormField
+                  control={form.control}
+                  name="from"
+                  render={({ field }) => {
+                    const isChecked = active["from"] || !!field.value
+                    return (
+                      <FormItem className="flex items-center gap-2 border border-solid bg-gray-100 rounded-lg px-2 min-h-14">
+                        <RadioGroup value={isChecked ? "checked" : ""}>
+                          <RadioGroupItem value="checked" id="radio-from" className="border-neutral-900 border-2"/>
+                        </RadioGroup>
+        
+                        <FormControl>
+                          <Input
+                            placeholder="e.g Douglas Road"
+                            {...field}
+                            className="border-0 shadow-none focus-visible:ring-0 outline-none placeholder:text-gray-400"
+                            onFocus={() => setActive((prev) => ({ ...prev, from: true }))}
+                            onBlur={(e) => {
+                              if (!e.target.value) {
+                                setActive((prev) => ({ ...prev, from: false }))
+                              }
+                            }}
+                          />
+                        </FormControl>
+        
+                        <div className="flex items-center gap-2">
+                          <button
+                            type="button"
+                            className="border p-2 rounded-full"
+                            onClick={() => handleSingleSubmit("from", field.value as string)}
+                          >
+                            <FaLocationArrow />
+                          </button>
+        
+                          <button
+                            type="button"
+                            className="border p-1 rounded-full"
+                            onClick={() => handleClear("from")}
+                          >
+                            <X />
+                          </button>
+                        </div>
+        
+                        <FormMessage />
+                      </FormItem>
+                    )
+                  }}
+                />
+         <FormField
+                  control={form.control}
+                  name="to"
+                  render={({ field }) => {
+                    const isChecked = active["to"] || !!field.value
+                    return (
+                      <FormItem className="flex items-center gap-2 border border-solid bg-gray-100 rounded-lg px-2 min-h-14">
+                        <RadioGroup value={isChecked ? "checked" : ""}>
+                          <RadioGroupItem value="checked" id="radio-to" className="border-neutral-900 border-2"/>
+                        </RadioGroup>
+        
+                        <FormControl>
+                          <Input
+                            placeholder="e.g World Bank Road"
+                            {...field}
+                            className="border-0 shadow-none focus-visible:ring-0 outline-none placeholder:text-gray-400"
+                            onFocus={() => setActive((prev) => ({ ...prev, to: true }))}
+                            onBlur={(e) => {
+                              if (!e.target.value) {
+                                setActive((prev) => ({ ...prev, to: false }))
+                              }
+                            }}
+                          />
+                        </FormControl>
+        
+                        <div className="flex items-center gap-2">
+                          <button
+                            type="button"
+                            className="border p-2 rounded-full"
+                            onClick={() => handleSingleSubmit("to", field.value as string)}
+                          >
+                            <FaLocationArrow />
+                          </button>
+        
+                          <button
+                            type="button"
+                            className="border p-1 rounded-full"
+                            onClick={() => handleClear("to")}
+                          >
+                            <X />
+                          </button>
+                        </div>
+        
+                        <FormMessage />
+                      </FormItem>
+                    )
+                  }}
+                />
+                <div className="bg-white rounded-full shadow absolute bottom-10 right-24 p-2">
+                  <ArrowDownUp />
+                </div>
+
+        </div>
+
+        <div className="flex not-lg:flex-wrap gap-x-5 items-center">
               <FormField
           control={form.control}
           name="date"
