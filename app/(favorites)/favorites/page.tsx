@@ -2,7 +2,8 @@ import React from 'react'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
-import { BriefcaseConveyorBelt, ChevronRight, House, Info } from 'lucide-react'
+import { ArrowRight, BriefcaseConveyorBelt, BusFront, ChevronRight, House, Info, MapPin, Star } from 'lucide-react'
+import { Badge } from '@/components/ui/badge'
 
 const FavoritePage = () => {
   return (
@@ -34,14 +35,38 @@ const FavoritePage = () => {
                             </div>
                 
                             </div>
-                            <div className='flex text-gray-600 gap-4 items-center'>
+                            <div className='flex text-gray-600 not-lg:flex-wrap gap-4 items-center'>
                                 <h4>Service updates will be sent to:</h4>
                                 <h4>yourmail@gmail.com</h4>
                                 <Button className='bg-transparent hover:bg-gray-50 cursor-pointer text-citybus-primary font-medium shadow-none flex items-center'>Change email <ChevronRight /></Button>
                             </div>
-                            <div className='border-y border-solid py-7 flex w-full gap-4'>
+                            <div className='border-y border-solid py-7 flex w-full gap-4 not-lg:flex-wrap'>
                                 <Button className='text-gray-700 lg:w-1/2 text-xl w-full font-medium flex gap-2 items-center justify-between px-4 py-6' variant={"secondary"}><span className='gap-2 items-center flex'><House /> Save your home</span> <ChevronRight /></Button>
                                 <Button className='text-gray-700 lg:w-1/2 text-xl w-full font-medium flex gap-2 items-center justify-between px-4 py-6' variant={"secondary"}><span className='gap-2 items-center flex'><BriefcaseConveyorBelt /> Save your work</span> <ChevronRight /></Button>
+                            </div>
+
+                            <div className='bg-gray-50/50 border border-solid rounded-lg p-4 mt-10 space-y-5'>
+                                <div className='flex items-center gap-3 text-gray-700 font-medium text-2xl'>
+                                    <MapPin />
+                                    <span>Journeys</span>
+                                </div>
+                                <p className='text-lg font-medium bg-gray-100 text-gray-700 p-4 rounded-lg'>Looks like you haven’t saved any journeys yet. Add your usual trips and make travelling easier!</p>
+                                <h3 className='text-gray-700 font-medium text-xl'>Suggested Journeys for you</h3>
+                                <div className='border border-solid rounded-lg gap-4 flex justify-between p-4 not-lg:flex-wrap'>
+                                    <div className='flex gap-6 items-center'>
+                                        <BusFront className='size-10'/>
+                                        <div className='space-y-2'>
+                                            <h3 className='font-medium sm:text-3xl text-xl text-gray-700'>Bus 7A</h3>
+                                            <div className='font-medium sm:text-xl text-sm text-gray-700 flex gap-2 items-center'>
+                                                Douglas Bus Stop
+                                                <ArrowRight />
+                                                Control Junction
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <Badge className='bg-citybus-primary size-fit rounded-full py-2 cursor-pointer'><Star /> Save Journey</Badge>
+                                </div>
+
                             </div>
                           
                       </TabsContent>
