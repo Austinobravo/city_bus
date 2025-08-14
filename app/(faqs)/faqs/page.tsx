@@ -7,6 +7,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
+import { Button } from '@/components/ui/button'
 
 const questionAndAnswers = [
     {
@@ -36,30 +37,27 @@ const questionAndAnswers = [
 ]
 const FaqPage = () => {
   return (
-    <section className='px-7 py-14 space-y-10'>
-        <div className='sm:w-3/4 ml-auto space-y-2'>
+    <section className='px-7 py-14 space-y-5'>
+        <div className='lg:w-3/4 ml-auto space-y-2'>
             <h2 className='text-gray-700 font-medium lg:text-4xl text-2xl'>Frequently Asked Questions</h2>
             <h3 className='text-gray-600 lg:text-lg text-sm'>We compiled a list of answers to address your most pressing questions regarding our Services.</h3>
             <FaqForm />
         </div>
-        <div className='flex gap-20 not-sm:flex-wrap '>
-            <div className='mt-20'>
-            <Tabs defaultValue="popular" className="lg:w-1/4 w-full">
-            <TabsList className='bg-transparent flex-col gap-3 text-lg font-medium'>
-                <TabsTrigger value="popular" className='data-[state=active]:text-gray-800 data-[state=active]:bg-gray-100 rounded-sm p-4 text-gray-500 w-full cursor-pointer'>Most popular question</TabsTrigger>
-                <TabsTrigger value="payment" className='data-[state=active]:text-gray-800 data-[state=active]:bg-gray-100 rounded-sm p-4 text-gray-500 w-full cursor-pointer'>About payments</TabsTrigger>
-                <TabsTrigger value="refund" className='data-[state=active]:text-gray-800 data-[state=active]:bg-gray-100 rounded-sm p-4 text-gray-500 w-full cursor-pointer'>Refunds and Cancellations</TabsTrigger>
-                <TabsTrigger value="ticket" className='data-[state=active]:text-gray-800 data-[state=active]:bg-gray-100 rounded-sm p-4 text-gray-500 w-full cursor-pointer'>Tickets</TabsTrigger>
+        <div className='flex gap-x-20 gap-y-10 lg:flex-row flex-col '>
+            <Tabs defaultValue="popular" className="lg:w-1/4 w-full shadow-none">
+            <TabsList className='bg-transparent flex-col not-sm:h-full gap-3 text-lg font-medium w-full'>
+                <TabsTrigger value="popular" className='data-[state=active]:text-gray-800 data-[state=active]:bg-gray-100 rounded-sm px-4 py-6 text-gray-500 w-full cursor-pointer'>Most popular question</TabsTrigger>
+                <TabsTrigger value="payment" className='data-[state=active]:text-gray-800 data-[state=active]:bg-gray-100 rounded-sm px-4 py-6 text-gray-500 w-full cursor-pointer'>About payments</TabsTrigger>
+                <TabsTrigger value="refund" className='data-[state=active]:text-gray-800 data-[state=active]:bg-gray-100 rounded-sm px-4 py-6 text-gray-500 w-full cursor-pointer'>Refunds and Cancellations</TabsTrigger>
+                <TabsTrigger value="ticket" className='data-[state=active]:text-gray-800 data-[state=active]:bg-gray-100 rounded-sm px-4 py-6 text-gray-500 w-full cursor-pointer'>Tickets</TabsTrigger>
             </TabsList>
-            <TabsContent value="popular" className='border'>
+            <TabsContent value="popular" className=''>
                 
             </TabsContent>
             <TabsContent value="pament">Change your password here.</TabsContent>
             <TabsContent value="pament">Change your password here.</TabsContent>
             <TabsContent value="pament">Change your password here.</TabsContent>
             </Tabs>
-
-            </div>
 
 
         <div className='lg:w-3/4 w-full '>
@@ -73,6 +71,13 @@ const FaqPage = () => {
                 </AccordionItem>
             ))}
                 </Accordion>
+                <div className='flex justify-between not-sm:flex-wrap gap-4 items-center bg-gray-50 p-4 shadow rounded-lg'>
+                    <div className='space-y-2'>
+                        <h2 className='text-gray-900 font-medium text-xl'>Still have questions?</h2>
+                        <h3 className='font-medium text-gray-500'>Please connect with our support team, we're happy to help!</h3>
+                    </div>
+                    <Button className='bg-blue-800 text-white'>Contact Support</Button>
+                </div>
         </div>
         </div>
         

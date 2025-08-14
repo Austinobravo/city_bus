@@ -3,6 +3,7 @@ import { ContactUsForm } from './_components/ContactUsForm'
 import { FaXTwitter } from 'react-icons/fa6'
 import Link from 'next/link'
 import { MapPin, MessageSquareMore, Phone } from 'lucide-react'
+import { Button } from '@/components/ui/button'
 
 const data = [
   {
@@ -83,6 +84,13 @@ const ContactUsPage = () => {
 
                 ))}
                 </div>
+            </div>
+            <div className='flex justify-between items-center bg-gray-50 p-4 shadow rounded-lg'>
+                <div className='space-y-2'>
+                    <h2 className='text-gray-900 font-medium text-xl'>Lost Properties?</h2>
+                    <h3 className='font-medium text-gray-500'>If you’ve left something on one of our buses, the best way to get it back is to complete our contact form below.</h3>
+                </div>
+                <Button className='bg-blue-800 text-white'>Contact Form</Button>
             </div>
     </section>
   )
