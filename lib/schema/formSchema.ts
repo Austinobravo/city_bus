@@ -13,3 +13,36 @@ export const HomeHeroFormSchema = z.object({
     time: z.string().min(1, {message: "This field is mandatory"}).refine((value) => !value || validateForEmptySpaces(value), {message: "No empty spaces"}).refine((value) => !value.match(emojiRegex), {message: "No emoji's alllowed."}),
     date: z.date({error: "This field is mandantory "}),
   })
+
+export const LostPropertyFormSchema = z.object({
+    location: z.string().min(1, {message: "This field is mandatory"}).refine((value) => !value || validateForEmptySpaces(value), {message: "No empty spaces"}).refine((value) => !value.match(emojiRegex), {message: "No emoji's alllowed."}),
+    destination: z.string().min(1, {message: "This field is mandatory"}).refine((value) => !value || validateForEmptySpaces(value), {message: "No empty spaces"}).refine((value) => !value.match(emojiRegex), {message: "No emoji's alllowed."}),
+    time: z.string().min(1, {message: "This field is mandatory"}).refine((value) => !value || validateForEmptySpaces(value), {message: "No empty spaces"}).refine((value) => !value.match(emojiRegex), {message: "No emoji's alllowed."}),
+    date: z.date({error: "This field is mandantory "}),
+    busNumber: z.string().optional().refine((value) => !value || validateForEmptySpaces(value), {message: "No empty spaces"}).refine((value) => !value || !value.match(emojiRegex), {message: "No emoji's alllowed."}),
+    ticketNumber: z.string().optional().refine((value) => !value || validateForEmptySpaces(value), {message: "No empty spaces"}).refine((value) => !value || !value.match(emojiRegex), {message: "No emoji's alllowed."}),
+    lostItem: z.string().optional().refine((value) => !value || validateForEmptySpaces(value), {message: "No empty spaces"}).refine((value) => !value || !value.match(emojiRegex), {message: "No emoji's alllowed."}),
+    brand: z.string().optional().refine((value) => !value || validateForEmptySpaces(value), {message: "No empty spaces"}).refine((value) => !value || !value.match(emojiRegex), {message: "No emoji's alllowed."}),
+    details: z.string().optional().refine((value) => !value || validateForEmptySpaces(value), {message: "No empty spaces"}).refine((value) => !value || !value.match(emojiRegex), {message: "No emoji's alllowed."}),
+    file: z
+    .any()
+    .refine((file) => {
+      if (!file) return true;
+      return file instanceof File;
+    }, { message: "Invalid file input" })
+    .refine((file) => {
+      if (!file) return true;
+      return file.size <= MAX_FILE_SIZE;
+    }, { message: "File max size is 5MB" })
+    .refine((file) => {
+      if (!file) return true;
+      return AcceptedFileTypes.includes(file.type);
+    }, { message: "Only jpg, png, gif, or pdf files are accepted" }),
+    firstName: z.string().min(1, {message: "This field is mandatory"}).refine((value) => !value || validateForEmptySpaces(value), {message: "No empty spaces"}).refine((value) => !value.match(emojiRegex), {message: "No emoji's alllowed."}),
+    lastName: z.string().min(1, {message: "This field is mandatory"}).refine((value) => !value || validateForEmptySpaces(value), {message: "No empty spaces"}).refine((value) => !value.match(emojiRegex), {message: "No emoji's alllowed."}),
+    email: z.email().min(1, {message: "This field is mandatory"}).refine((value) => !value || validateForEmptySpaces(value), {message: "No empty spaces"}).refine((value) => !value.match(emojiRegex), {message: "No emoji's alllowed."}),
+    town: z.string().optional().refine((value) => !value || validateForEmptySpaces(value), {message: "No empty spaces"}).refine((value) => !value || !value.match(emojiRegex), {message: "No emoji's alllowed."}),
+    address: z.string().optional().refine((value) => !value || validateForEmptySpaces(value), {message: "No empty spaces"}).refine((value) => !value || !value.match(emojiRegex), {message: "No emoji's alllowed."}),
+    phone: z.string().optional().refine((value) => !value || validateForEmptySpaces(value), {message: "No empty spaces"}).refine((value) => !value || !value.match(emojiRegex), {message: "No emoji's alllowed."}),
+
+  })
