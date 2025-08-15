@@ -8,7 +8,7 @@ import { MdOutlineLocalAtm } from "react-icons/md";
 const WalletPage = () => {
   return (
     <section className='px-7 py-14 pb-20 space-y-20'>
-        <Link href={``} className='bg-gradient-to-br  from-white via-[#F1F2F5] shadow border border-solid gap-5 border-gray-200 p-7 pb-20 rounded-2xl w-full flex flex-col to-[#E2E7F1]'>
+        <Link href={`/wallet/transactions`} className='bg-gradient-to-br  from-white via-[#F1F2F5] shadow border border-solid gap-5 border-gray-200 p-7 pb-20 rounded-2xl w-full flex flex-col to-[#E2E7F1]'>
             <span className='font-semibold sm:text-2xl text-lg text-gray-700'>CBT Cash</span>
             <span className='text-gray-900 sm:text-6xl text-4xl font-semibold'>NGN 0.00</span>
         </Link>
