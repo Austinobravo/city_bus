@@ -260,7 +260,7 @@ const LostPropertyForm = () => {
                             </FormControl>
                             <SelectContent>
                                 {lostProperty.map((property) => (
-                                    <SelectItem key={property} value={property}>{property}</SelectItem>
+                                    <SelectItem key={property} value={property} className="hover:!bg-citybus-primary hover:!text-white">{property}</SelectItem>
                                 ))}
                             </SelectContent>
                         </Select>

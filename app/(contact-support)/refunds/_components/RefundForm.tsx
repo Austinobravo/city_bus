@@ -46,9 +46,10 @@ const RefundForm = () => {
         destination: "",
         time: "",
         date: undefined,
-        busNumber: "",
-        ticketNumber: "",
-        Refund: "Driver",
+        ticketType: "",
+        buyFrom: "",
+        paymentMethod: "",
+        refundReason: "",
         details: "",
         file: "",
         firstName: "",
@@ -71,7 +72,10 @@ const RefundForm = () => {
   }
   const isSubmitting = form.formState.isSubmitting
 
-  const Refund = ["Driver", "Passenger", "Vehicle", "Accident", "Security", "Aggressive and Abusive Behavior", "Purse / Wallet", "Suspicious Activity", "Others"]
+  const buyFrom = ["Online / Website", "Mobile App", "Bus Station", "Cash", "Through Agent","Others"]
+  const paymentMethod = ["Credit Card", "Debit Card", "Bank Transfer", "Cash","Others"]
+  const refundReason = ["Overbooking", "Wrong date or time selected", "Accidental purchase", "Medical emergency", "Poor service or experience", "Others"]
+  const ticketType = ["Single", "Round Trip", "Promo ticket", "Student", "Others"]
 
   return (
     <Form {...form}>
@@ -195,22 +199,26 @@ const RefundForm = () => {
 
             </div>
             <div className="">
-                <h3 className="font-medium text-gray-700 text-xl">The Bus</h3>
+                <h3 className="font-medium text-gray-700 text-xl">Details of the ticket</h3>
                 <div className="grid gap-x-4  lg:grid-cols-2 ">
                     <FormField
                         control={form.control}
-                        name="busNumber"
+                        name="ticketType"
                         render={({ field }) => (
                             <FormItem className="flex flex-col">
                             <FormLabel></FormLabel>
-                            <FormControl>
-                                <Input
-                                {...field}
-                                placeholder="Registration / CBT number (Optional)"
-                                className="bg-[#FCFCFC] text-gray-400 focus-visible:ring-0 min-h-18"
-                                />
-
+                             <Select onValueChange={field.onChange} defaultValue={field.value}>
+                            <FormControl className="w-full">
+                            <SelectTrigger className="bg-[#FCFCFC] text-gray-400 focus-visible:ring-0 min-h-18 ">
+                                <SelectValue placeholder="How did you buy (Required)" />
+                            </SelectTrigger>
                             </FormControl>
+                            <SelectContent>
+                                {ticketType.map((property) => (
+                                    <SelectItem key={property} value={property} className="hover:!bg-citybus-primary hover:!text-white">{property}</SelectItem>
+                                ))}
+                            </SelectContent>
+                        </Select>
                             <FormDescription>
                               
                             </FormDescription>
@@ -220,17 +228,22 @@ const RefundForm = () => {
                         />
                     <FormField
                     control={form.control}
-                    name="ticketNumber"
+                    name="buyFrom"
                     render={({ field }) => (
                         <FormItem>
                         <FormLabel></FormLabel>
-                        <FormControl>
-                            <Input
-                            {...field}
-                            placeholder="Ticket number (Optional)"
-                            className="bg-[#FCFCFC] text-gray-400 focus-visible:ring-0 min-h-18"
-                            />
-                        </FormControl>
+                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                            <FormControl className="w-full">
+                            <SelectTrigger className="bg-[#FCFCFC] text-gray-400 focus-visible:ring-0 min-h-18 ">
+                                <SelectValue placeholder="How did you buy (Required)" />
+                            </SelectTrigger>
+                            </FormControl>
+                            <SelectContent>
+                                {buyFrom.map((property) => (
+                                    <SelectItem key={property} value={property} className="hover:!bg-citybus-primary hover:!text-white">{property}</SelectItem>
+                                ))}
+                            </SelectContent>
+                        </Select>
                         <FormDescription>
                             
                         </FormDescription>
@@ -240,26 +253,22 @@ const RefundForm = () => {
                     />
 
                 </div>
-
-            </div>
-            <div className="">
-                <h3 className="font-medium text-gray-700 text-xl">What do you want to report?</h3>
                 <div className="grid gap-x-4  lg:grid-cols-2 ">
                     <FormField
                         control={form.control}
-                        name="Refund"
+                        name="paymentMethod"
                         render={({ field }) => (
-                            <FormItem className="flex flex-col w-full">
+                            <FormItem className="flex flex-col">
                             <FormLabel></FormLabel>
                             <Select onValueChange={field.onChange} defaultValue={field.value}>
                             <FormControl className="w-full">
                             <SelectTrigger className="bg-[#FCFCFC] text-gray-400 focus-visible:ring-0 min-h-18 ">
-                                <SelectValue placeholder="Select the lost item" />
+                                <SelectValue placeholder="Payment method used (Required)" />
                             </SelectTrigger>
                             </FormControl>
                             <SelectContent>
-                                {Refund.map((property) => (
-                                    <SelectItem key={property} value={property}>{property}</SelectItem>
+                                {paymentMethod.map((property) => (
+                                    <SelectItem key={property} value={property} className="hover:!bg-citybus-primary hover:!text-white">{property}</SelectItem>
                                 ))}
                             </SelectContent>
                         </Select>
@@ -274,7 +283,38 @@ const RefundForm = () => {
 
             </div>
             <div className="">
-                <h3 className="font-medium text-gray-700 text-xl">Describe your Refund in full details (Required)</h3>
+                <h3 className="font-medium text-gray-700 text-xl">Reason for Refund (Required)</h3>
+                <div className="grid gap-x-4  lg:grid-cols-2 ">
+                    <FormField
+                        control={form.control}
+                        name="refundReason"
+                        render={({ field }) => (
+                            <FormItem className="flex flex-col w-full">
+                            <FormLabel></FormLabel>
+                            <Select onValueChange={field.onChange} defaultValue={field.value}>
+                            <FormControl className="w-full">
+                            <SelectTrigger className="bg-[#FCFCFC] text-gray-400 focus-visible:ring-0 min-h-18 ">
+                                <SelectValue placeholder="Select reason (Required)" />
+                            </SelectTrigger>
+                            </FormControl>
+                            <SelectContent>
+                                {refundReason.map((property) => (
+                                    <SelectItem key={property} value={property} className="hover:!bg-citybus-primary hover:!text-white">{property}</SelectItem>
+                                ))}
+                            </SelectContent>
+                        </Select>
+                            <FormDescription>
+                              
+                            </FormDescription>
+                            <FormMessage />
+                            </FormItem>
+                        )}
+                        />
+                </div>
+
+            </div>
+            <div className="">
+                <h3 className="font-medium text-gray-700 text-xl">Tell us why you are requesting for a refund (Required)</h3>
                     <FormField
                     control={form.control}
                     name="details"
