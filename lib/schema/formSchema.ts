@@ -111,3 +111,28 @@ export const RefundFormSchema = z.object({
     phone: z.string().optional().refine((value) => !value || validateForEmptySpaces(value), {message: "No empty spaces"}).refine((value) => !value || !value.match(emojiRegex), {message: "No emoji's alllowed."}),
 
   })
+
+export const FeedbackFormSchema = z.object({
+    details: z.string().optional().refine((value) => !value || validateForEmptySpaces(value), {message: "No empty spaces"}).refine((value) => !value || !value.match(emojiRegex), {message: "No emoji's alllowed."}),
+    file: z
+    .any()
+    .refine((file) => {
+      if (!file) return true;
+      return file instanceof File;
+    }, { message: "Invalid file input" })
+    .refine((file) => {
+      if (!file) return true;
+      return file.size <= MAX_FILE_SIZE;
+    }, { message: "File max size is 5MB" })
+    .refine((file) => {
+      if (!file) return true;
+      return AcceptedFileTypes.includes(file.type);
+    }, { message: "Only jpg, png, gif, or pdf files are accepted" }),
+    firstName: z.string().min(1, {message: "This field is mandatory"}).refine((value) => !value || validateForEmptySpaces(value), {message: "No empty spaces"}).refine((value) => !value.match(emojiRegex), {message: "No emoji's alllowed."}),
+    lastName: z.string().min(1, {message: "This field is mandatory"}).refine((value) => !value || validateForEmptySpaces(value), {message: "No empty spaces"}).refine((value) => !value.match(emojiRegex), {message: "No emoji's alllowed."}),
+    email: z.email().min(1, {message: "This field is mandatory"}).refine((value) => !value || validateForEmptySpaces(value), {message: "No empty spaces"}).refine((value) => !value.match(emojiRegex), {message: "No emoji's alllowed."}),
+    town: z.string().optional().refine((value) => !value || validateForEmptySpaces(value), {message: "No empty spaces"}).refine((value) => !value || !value.match(emojiRegex), {message: "No emoji's alllowed."}),
+    address: z.string().optional().refine((value) => !value || validateForEmptySpaces(value), {message: "No empty spaces"}).refine((value) => !value || !value.match(emojiRegex), {message: "No emoji's alllowed."}),
+    phone: z.string().optional().refine((value) => !value || validateForEmptySpaces(value), {message: "No empty spaces"}).refine((value) => !value || !value.match(emojiRegex), {message: "No emoji's alllowed."}),
+
+  })
