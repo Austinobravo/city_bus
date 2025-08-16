@@ -16,7 +16,7 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import { LostPropertyFormSchema } from "@/lib/schema/formSchema"
+import { IncidentFormSchema } from "@/lib/schema/formSchema"
 import {
   Popover,
   PopoverContent,
@@ -38,9 +38,9 @@ import { Label } from "@/components/ui/label"
 import PhoneInputWithCountrySelect from "react-phone-number-input"
 
 
-const LostPropertyForm = () => {
-  const form = useForm<z.infer<typeof LostPropertyFormSchema>>({
-    resolver: zodResolver(LostPropertyFormSchema),
+const IncidentForm = () => {
+  const form = useForm<z.infer<typeof IncidentFormSchema>>({
+    resolver: zodResolver(IncidentFormSchema),
     defaultValues: {
         location: "",
         destination: "",
@@ -48,8 +48,7 @@ const LostPropertyForm = () => {
         date: undefined,
         busNumber: "",
         ticketNumber: "",
-        lostItem: "Phone",
-        brand: "",
+        incident: "Driver",
         details: "",
         file: "",
         firstName: "",
@@ -61,7 +60,7 @@ const LostPropertyForm = () => {
     },
   })
 
-  function onSubmit(data: z.infer<typeof LostPropertyFormSchema>) {
+  function onSubmit(data: z.infer<typeof IncidentFormSchema>) {
     toast("You submitted the following values", {
       description: (
         <pre className="mt-2 w-[320px] rounded-md bg-neutral-950 p-4">
@@ -72,7 +71,7 @@ const LostPropertyForm = () => {
   }
   const isSubmitting = form.formState.isSubmitting
 
-  const lostProperty = ["Phone", "Laptop", "Document", "ID Card", "Credit/Debit Card", "Medication", "Purse / Wallet", "Clothing", "Keys", "Bags", "Umbrella", "Others"]
+  const Incident = ["Driver", "Passenger", "Vehicle", "Accident", "Security", "Aggressive and Abusive Behavior", "Purse / Wallet", "Suspicious Activity", "Others"]
 
   return (
     <Form {...form}>
@@ -80,7 +79,7 @@ const LostPropertyForm = () => {
         <div className="border border-solid rounded-2xl border-gray-200 bg-gray-50/50 p-4 space-y-4">
             <div className="">
                 <h3 className="font-medium text-gray-700 text-xl">When and Where</h3>
-                <div className="grid gap-4 lg:grid-cols-2 ">
+                <div className="grid gap-x-4  lg:grid-cols-2 ">
                     <FormField
                         control={form.control}
                         name="date"
@@ -151,7 +150,7 @@ const LostPropertyForm = () => {
                     />
 
                 </div>
-                <div className="grid gap-4 lg:grid-cols-2 ">
+                <div className="grid gap-x-4  lg:grid-cols-2 ">
                     <FormField
                         control={form.control}
                         name="location"
@@ -197,7 +196,7 @@ const LostPropertyForm = () => {
             </div>
             <div className="">
                 <h3 className="font-medium text-gray-700 text-xl">The Bus</h3>
-                <div className="grid gap-4 lg:grid-cols-2 ">
+                <div className="grid gap-x-4  lg:grid-cols-2 ">
                     <FormField
                         control={form.control}
                         name="busNumber"
@@ -244,11 +243,11 @@ const LostPropertyForm = () => {
 
             </div>
             <div className="">
-                <h3 className="font-medium text-gray-700 text-xl">Your Lost Item</h3>
-                <div className="grid gap-4 lg:grid-cols-2 ">
+                <h3 className="font-medium text-gray-700 text-xl">What do you want to report?</h3>
+                <div className="grid gap-x-4  lg:grid-cols-2 ">
                     <FormField
                         control={form.control}
-                        name="lostItem"
+                        name="incident"
                         render={({ field }) => (
                             <FormItem className="flex flex-col w-full">
                             <FormLabel></FormLabel>
@@ -259,7 +258,7 @@ const LostPropertyForm = () => {
                             </SelectTrigger>
                             </FormControl>
                             <SelectContent>
-                                {lostProperty.map((property) => (
+                                {Incident.map((property) => (
                                     <SelectItem key={property} value={property}>{property}</SelectItem>
                                 ))}
                             </SelectContent>
@@ -271,32 +270,11 @@ const LostPropertyForm = () => {
                             </FormItem>
                         )}
                         />
-                    <FormField
-                    control={form.control}
-                    name="brand"
-                    render={({ field }) => (
-                        <FormItem>
-                        <FormLabel></FormLabel>
-                        <FormControl>
-                            <Input
-                            {...field}
-                            placeholder="Brand (Optional)"
-                            className="bg-[#FCFCFC] text-gray-400 focus-visible:ring-0 min-h-18"
-                            />
-                        </FormControl>
-                        <FormDescription>
-                            
-                        </FormDescription>
-                        <FormMessage />
-                        </FormItem>
-                    )}
-                    />
-
                 </div>
 
             </div>
             <div className="">
-                <h3 className="font-medium text-gray-700 text-xl">Describe your item in full details (Required)</h3>
+                <h3 className="font-medium text-gray-700 text-xl">Describe your incident in full details (Required)</h3>
                     <FormField
                     control={form.control}
                     name="details"
@@ -346,7 +324,7 @@ const LostPropertyForm = () => {
         <div className="border border-solid rounded-2xl border-gray-200 bg-gray-50/50 p-4 space-y-4">
             <div className="">
                 <h3 className="font-medium text-gray-700 text-xl">Your Contact Details</h3>
-                <div className="grid gap-4 lg:grid-cols-2 ">
+                <div className="grid gap-x-4  lg:grid-cols-2 ">
                     <FormField
                         control={form.control}
                         name="firstName"
@@ -388,7 +366,7 @@ const LostPropertyForm = () => {
                     />
 
                 </div>
-                <div className="grid gap-4 lg:grid-cols-2 ">
+                <div className="grid gap-x-4  lg:grid-cols-2 ">
                     <FormField
                         control={form.control}
                         name="town"
@@ -432,7 +410,7 @@ const LostPropertyForm = () => {
                     />
 
                 </div>
-                <div className="grid gap-4 lg:grid-cols-2 ">
+                <div className="grid gap-x-4  lg:grid-cols-2 ">
                     <FormField
                         control={form.control}
                         name="phone"
@@ -480,4 +458,4 @@ const LostPropertyForm = () => {
   )
 }
 
-export default LostPropertyForm
+export default IncidentForm
