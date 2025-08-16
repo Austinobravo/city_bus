@@ -17,22 +17,7 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { FeedbackFormSchema } from "@/lib/schema/formSchema"
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover"
 import { CalendarIcon, Loader2, Plus } from "lucide-react"
-import { Calendar } from "@/components/ui/calendar"
-import { format } from "date-fns"
-import { cn } from "@/lib/utils"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import PhoneInputWithCountrySelect from "react-phone-number-input"
@@ -63,11 +48,6 @@ const FeedbackForm = () => {
     })
   }
   const isSubmitting = form.formState.isSubmitting
-
-  const buyFrom = ["Online / Website", "Mobile App", "Bus Station", "Cash", "Through Agent","Others"]
-  const paymentMethod = ["Credit Card", "Debit Card", "Bank Transfer", "Cash","Others"]
-  const FeedbackReason = ["Overbooking", "Wrong date or time selected", "Accidental purchase", "Medical emergency", "Poor service or experience", "Others"]
-  const ticketType = ["Single", "Round Trip", "Promo ticket", "Student", "Others"]
 
   return (
     <Form {...form}>
