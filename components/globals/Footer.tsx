@@ -114,7 +114,7 @@ const copyrightLinks = [
 ]
 const Footer = () => {
   return (
-    <footer className='px-7 container mx-auto'>
+    <footer className='px-7 container mx-auto mt-5'>
         <div className=''>
             <Link href="/">
             <figure className="flex gap-2 text-[#194185]">

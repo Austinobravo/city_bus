@@ -46,7 +46,7 @@ const PlannedJourney = ({isLoading, plannedJourney}:Props) => {
 
           <TabsContent value="departure" className="space-y-4 py-4">
             {journey.map((journey, index) => (
-              <Link key={index} href={``} className="bg-gray-50 rounded-2xl hover:bg-gray-100 p-4 flex gap-3 items-center justify-between">
+              <Link key={index} href={`/plan-journey/1`} className="bg-gray-50 rounded-2xl hover:bg-gray-100 p-4 flex gap-3 items-center justify-between">
                 <div>
                   <h3 className="font-semibold text-citybus-primary">{journey.from.destination}</h3>
                   <h4 className="text-2xl font-semibold">{journey.from.time}</h4>
@@ -72,8 +72,60 @@ const PlannedJourney = ({isLoading, plannedJourney}:Props) => {
             ))}
           </TabsContent>
 
-          <TabsContent value="price">Change your price here.</TabsContent>
-          <TabsContent value="duration">Change your duration here.</TabsContent>
+          <TabsContent value="price">
+             {journey.map((journey, index) => (
+              <Link key={index} href={`/plan-journey/1`} className="bg-gray-50 rounded-2xl hover:bg-gray-100 p-4 flex gap-3 items-center justify-between">
+                <div>
+                  <h3 className="font-semibold text-citybus-primary">{journey.from.destination}</h3>
+                  <h4 className="text-2xl font-semibold">{journey.from.time}</h4>
+                  <h5 className="text-neutral-700">{journey.from.description}</h5>
+                </div>
+                <hr className="!w-5 border border-black border-solid" />
+                <div className="space-y-3">
+                  <div>
+                    <h3 className="font-medium text-gray-500 text-xs">Journey time</h3>
+                    <time className="font-semibold text-gray-700 text-sm">2hrs 30mins</time>
+                  </div>
+                  <data value={journey.amount} className="font-semibold text-xl text-citybus-primary ">
+                    {formatToNaira(journey.amount)}
+                  </data>
+                </div>
+                <ArrowRight />
+                <div>
+                  <h3 className="font-semibold text-citybus-primary">{journey.to.destination}</h3>
+                  <h4 className="text-2xl font-semibold">{journey.to.time}</h4>
+                  <h5 className="text-neutral-700">{journey.to.description}</h5>
+                </div>
+              </Link>
+            ))}
+          </TabsContent>
+          <TabsContent value="duration">
+             {journey.map((journey, index) => (
+              <Link key={index} href={`/plan-journey/1`} className="bg-gray-50 rounded-2xl hover:bg-gray-100 p-4 flex gap-3 items-center justify-between">
+                <div>
+                  <h3 className="font-semibold text-citybus-primary">{journey.from.destination}</h3>
+                  <h4 className="text-2xl font-semibold">{journey.from.time}</h4>
+                  <h5 className="text-neutral-700">{journey.from.description}</h5>
+                </div>
+                <hr className="!w-5 border border-black border-solid" />
+                <div className="space-y-3">
+                  <div>
+                    <h3 className="font-medium text-gray-500 text-xs">Journey time</h3>
+                    <time className="font-semibold text-gray-700 text-sm">2hrs 30mins</time>
+                  </div>
+                  <data value={journey.amount} className="font-semibold text-xl text-citybus-primary ">
+                    {formatToNaira(journey.amount)}
+                  </data>
+                </div>
+                <ArrowRight />
+                <div>
+                  <h3 className="font-semibold text-citybus-primary">{journey.to.destination}</h3>
+                  <h4 className="text-2xl font-semibold">{journey.to.time}</h4>
+                  <h5 className="text-neutral-700">{journey.to.description}</h5>
+                </div>
+              </Link>
+            ))}
+          </TabsContent>
         </Tabs>
       </section>
     )
