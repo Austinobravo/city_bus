@@ -27,7 +27,7 @@ const TimetableDetail = () => {
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-            <BreadcrumbLink href="">Timetables</BreadcrumbLink>
+            <BreadcrumbLink href="">Timetable</BreadcrumbLink>
             </BreadcrumbItem>
         </BreadcrumbList>
         </Breadcrumb>
@@ -62,7 +62,7 @@ const TimetableDetail = () => {
                 </div>
             </div>
         </div>
-        <Accordion type="single" collapsible className='border border-solid rounded-lg'>
+        <Accordion type="single" collapsible className='border border-solid rounded-lg mt-10 bg-gray-50'>
         <AccordionItem value="item-1">
             <AccordionTrigger className='p-4 hover:no-underline flex justify-between border w-full items-center'>
                 <div className='flex gap-2 items-center'>
