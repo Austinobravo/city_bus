@@ -29,7 +29,7 @@ const TrackJourneyPage = () => {
             </BreadcrumbItem>
         </BreadcrumbList>
         </Breadcrumb>
-        <div className='py-10'>
+        <div className='py-10 space-y-7'>
           <TrackAJourneyForm />
            <div className='flex items-center gap-3'>
                 <hr className='flex-grow min-h-0 border border-solid '/>

@@ -64,7 +64,7 @@ export default function TrackAJourneyForm() {
 
                 return (
                 <FormItem className="space-y-3">
-                    <FormLabel>Track Journey</FormLabel>
+                    <FormLabel className="text-gray-700 font-semibold text-xl">Track Journey</FormLabel>
                     <FormControl>
                     <RadioGroup
                         onValueChange={field.onChange}
