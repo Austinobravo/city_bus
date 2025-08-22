@@ -7,8 +7,8 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
-import { BusFront, User } from 'lucide-react'
-import { HiOutlineArrowLongRight } from 'react-icons/hi2'
+import { BusFront, Info, MapPin, User } from 'lucide-react'
+import { HiOutlineArrowLongRight, HiOutlineArrowLongDown } from 'react-icons/hi2'
 import { Button } from '@/components/ui/button'
 import {
   Accordion,
@@ -16,6 +16,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
+import { FaDotCircle } from "react-icons/fa";
+import TimetableCopyForm from '../_components/TimetableCopyForm'
 
 const TimetableDetail = () => {
   return (
@@ -62,17 +64,17 @@ const TimetableDetail = () => {
                 </div>
             </div>
         </div>
-        <Accordion type="single" collapsible className='border border-solid rounded-lg mt-10 bg-gray-50'>
+        <Accordion type="single" defaultValue='item-1' collapsible className='border border-solid rounded-lg my-10 bg-gray-50'>
         <AccordionItem value="item-1">
-            <AccordionTrigger className='p-4 hover:no-underline flex justify-between border w-full items-center'>
+            <AccordionTrigger className='p-4 hover:no-underline flex not-sm:flex-wrap justify-between border w-full items-center'>
                 <div className='flex gap-2 items-center'>
                     <BusFront className='size-14'/>
                     <div>
-                        <h3 className='font-medium text-3xl text-gray-700'>Bus 7A</h3>
+                        <h3 className='font-medium sm:text-3xl text-xl text-gray-700'>Bus 7A</h3>
                         <div className='flex gap-2 items-center'>
-                            <h3 className='font-medium text-xl text-citybus-primary'>Douglas Junction</h3>
+                            <h3 className='font-medium sm:text-xl text-sm text-citybus-primary'>Douglas Junction</h3>
                             <HiOutlineArrowLongRight className='' size={50}/>
-                            <h3 className='font-medium text-xl text-citybus-primary'>Wethadral Junction</h3>
+                            <h3 className='font-medium sm:text-xl text-sm text-citybus-primary'>Wethadral Junction</h3>
 
                         </div>
                     </div>
@@ -80,10 +82,52 @@ const TimetableDetail = () => {
                 <span>Approx. journey time: 2hrs 30mins</span>
             </AccordionTrigger>
             <AccordionContent>
-            Yes. It adheres to the WAI-ARIA design pattern.
+            <div className='bg-[#D2E5F9] text-2xl font-semibold text-citybus-primary flex justify-evenly gap-2 p-4'>
+                <h2>Journey</h2>
+                <h2>Time</h2>
+            </div>
+            <div className='divide-y divide-solid max-w-5/6 ml-auto'>
+                <div className='flex py-4'>
+                    <div className='flex gap-2 items-center w-1/2 justify-center'>
+                        <FaDotCircle fill='#22c55e' className='size-5'/>
+                        <div>
+                            <h3 className='font-medium'>Departure</h3>
+                            <h3 className='text-sm'>Douglas Road</h3>
+                        </div>
+                    </div>
+                    <div className='border-l border-solid text-center w-1/2'>
+                        <time className='text-gray-700 text-2xl text-center'>9:40</time>
+                    </div>
+                </div>
+                <div className='w-full py-2'>
+                    <HiOutlineArrowLongDown className='size-6 text-citybus-primary'/>
+                </div>
+                <div className='flex py-4'>
+                    <div className='flex gap-2 items-center w-1/2 justify-center'>
+                        <MapPin className='size-5 text-citybus-primary'/>
+                        <div>
+                            <h3 className='font-medium'>Arrival</h3>
+                            <h3 className='text-sm'>Imsu Gate</h3>
+                        </div>
+                    </div>
+                    <div className='border-l border-solid text-center w-1/2'>
+                        <time className='text-gray-700 text-2xl text-center'>12:40</time>
+                    </div>
+                </div>
+            </div>
             </AccordionContent>
         </AccordionItem>
         </Accordion>
+        <div className='grid lg:grid-cols-2 gap-4'>
+            <TimetableCopyForm />
+            <div className='bg-blue-50 flex p-4 gap-2 rounded-lg items-center'>
+                <Info />
+                <div className='text-gray-700'>
+                    <h3 className='sm:text-2xl text-lg'>Enter a valid email to receive timetable.</h3>
+                    <h4 className='sm:text-xl text-sm text-citybus-primary'>Please note: schedules are no longer valid after departure.</h4>
+                </div>
+            </div>
+        </div>
     </div>
   )
 }
