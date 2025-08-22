@@ -127,13 +127,23 @@ export default function DesktopNav() {
         <ChevronDown className="w-4 h-4 transition-transform duration-200 ease-in-out group-data-[state=open]:rotate-180" />
       </DropdownMenuTrigger>
       <DropdownMenuContent className="text-[#194185] font-semibold">
-        <DropdownMenuItem><CircleUser className="w-4 h-4 mr-2" /> Manage Account</DropdownMenuItem>
-        <DropdownMenuItem><Star className="w-4 h-4 mr-2" /> Favorites</DropdownMenuItem>
-        <DropdownMenuItem><CreditCard className="w-4 h-4 mr-2" /> Wallets</DropdownMenuItem>
-        <DropdownMenuItem><Settings className="w-4 h-4 mr-2" /> Settings</DropdownMenuItem>
+        <Link href="/account"> 
+          <DropdownMenuItem className="cursor-pointer"><CircleUser className="w-4 h-4 mr-2" /> Manage Account</DropdownMenuItem>
+        </Link>
+        <Link href="/favorites">
+        <DropdownMenuItem className="cursor-pointer"><Star className="w-4 h-4 mr-2" /> Favorites</DropdownMenuItem>
+        </Link>
+        <Link href="/wallet">
+        <DropdownMenuItem className="cursor-pointer"><CreditCard className="w-4 h-4 mr-2" /> Wallets</DropdownMenuItem>
+        </Link>
+        <Link href="/profile">
+        <DropdownMenuItem className="cursor-pointer"><Settings className="w-4 h-4 mr-2" /> Settings</DropdownMenuItem>
+        </Link>
       </DropdownMenuContent>
     </DropdownMenu>
+    <Link href="/cart">
     <Button className="" variant={"outline"} size={'icon'}><ShoppingCart /></Button>
+    </Link>
     </div>
 
     </div>

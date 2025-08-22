@@ -10,11 +10,11 @@ export const useNavigation = () => {
             children: [
                 {
                     title: "Journey planner",
-                    href: ""
+                    href: "/plan-journey"
                 },
                 {
                     title: "Trip Tracker",
-                    href: ""
+                    href: "/track"
                 },
                 {
                     title: "Routes & Stops",
@@ -22,7 +22,11 @@ export const useNavigation = () => {
                 },
                 {
                     title: "Saved Locations",
-                    href: ""
+                    href: "/favorites"
+                },
+                {
+                    title: "View Timetable",
+                    href: "/timetable"
                 },
             ]
         },
@@ -33,7 +37,7 @@ export const useNavigation = () => {
             children: [
                 {
                     title: "Buy for self",
-                    href: ""
+                    href: "/see-all-tickets"
                 },
                 {
                     title: "Buy for others",
