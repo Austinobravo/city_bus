@@ -16,7 +16,6 @@ const AccountPage = () => {
             src={`https://www.google.com/maps?q=${encodeURIComponent("owerri")}&output=embed`}
             width="100%"
             height="100%"
-            // style={{ border: 0, borderRadius: "1rem" }}
             allowFullScreen
             loading="lazy"
             className='lg:basis-1/2 min-h-80'

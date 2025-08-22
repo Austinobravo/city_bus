@@ -8,7 +8,7 @@ const PlanJourneySection = () => {
     const [isLoading, setIsLoading] = React.useState<boolean>(false)
     
   return (
-    <div className='lg:pl-7 space-y-10 flex not-lg:flex-wrap gap-5'>
+    <div className='lg:pl-7 space-y-10 flex not-lg:flex-wrap gap-5 not-lg:px-7'>
         <div className='py-12 lg:basis-2/5'>
             <PlanJourneyForm setPlannedJourney={setPlannedJourney} setIsLoading={setIsLoading}/>
             <PlannedJourney isLoading={isLoading} plannedJourney={plannedJourney}/>
@@ -17,7 +17,6 @@ const PlanJourneySection = () => {
             src={`https://www.google.com/maps?q=${encodeURIComponent("owerri")}&output=embed`}
             width="100%"
             height="100%"
-            // style={{ border: 0, borderRadius: "1rem" }}
             allowFullScreen
             loading="lazy"
             className='lg:basis-3/5 min-h-screen self-stretch'

@@ -1,16 +1,44 @@
 import Image from 'next/image'
 import React from 'react'
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb"
+import TrackAJourneyForm from './_components/TrackJourney'
+import TrackBusNumber from './_components/TrackBusNumber'
 
 const TrackJourneyPage = () => {
   return (
-    <section className='flex not-lg:flex-wrap gap-5 px-7 py-10 container mx-auto'>
-        <div className='lg:w-1/2'>
-            <h1 className='lg:text-4xl text-2xl font-semibold text-gray-700'>Wherever you’re headed in Owerri, City Bus will take you there.</h1>
-            {/* <HomeHeroForm /> */}
+    <section>
+       <Breadcrumb>
+        <BreadcrumbList>
+            <BreadcrumbItem>
+            <BreadcrumbLink href="/" className='text-citybus-primary'>City Bus transit</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+            <BreadcrumbLink href="">Timetable</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+            <BreadcrumbLink href="">Track your Trip</BreadcrumbLink>
+            </BreadcrumbItem>
+        </BreadcrumbList>
+        </Breadcrumb>
+        <div className='py-10'>
+          <TrackAJourneyForm />
+           <div className='flex items-center gap-3'>
+                <hr className='flex-grow min-h-0 border border-solid '/>
+                <span className='whitespace-nowrap'>or</span>
+                <hr className='flex-grow min-h-0 border border-solid '/>
+            </div>
+          <TrackBusNumber />
         </div>
-        <div className='w-full lg:w-1/2'>
-            <Image src={`/homehero.png`} width={200} height={500} alt='Home hero' className='w-full' />
-        </div>
+
     </section>
   )
 }
