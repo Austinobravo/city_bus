@@ -142,7 +142,7 @@ export default function DesktopNav() {
       </DropdownMenuContent>
     </DropdownMenu>
     <Link href="/cart">
-    <Button className="" variant={"outline"} size={'icon'}><ShoppingCart /></Button>
+    <Button className="cursor-pointer" variant={"outline"} size={'icon'} ><ShoppingCart /></Button>
     </Link>
     </div>
 
