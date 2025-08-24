@@ -25,6 +25,8 @@ import {
 import { Button } from "@/components/ui/button"
 import { useNavigation } from "@/hooks/useNavigation"
 import { cn } from "@/lib/utils"
+import LoginForm from "./LoginForm"
+import { Separator } from "../ui/separator"
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -120,7 +122,7 @@ export default function DesktopNav() {
             <DropdownMenuItem>Pidgin</DropdownMenuItem>
         </DropdownMenuContent>
         </DropdownMenu>
-    <DropdownMenu>
+    {/* <DropdownMenu>
       <DropdownMenuTrigger className="flex items-center py-2 gap-2 whitespace-nowrap group text-sm text-white rounded-lg px-2 bg-[#194185]">
         <CircleUser className="w-4 h-4" />
         <span>My Account</span>
@@ -140,7 +142,18 @@ export default function DesktopNav() {
         <DropdownMenuItem className="cursor-pointer"><Settings className="w-4 h-4 mr-2" /> Settings</DropdownMenuItem>
         </Link>
       </DropdownMenuContent>
+    </DropdownMenu> */}
+    <DropdownMenu>
+      <DropdownMenuTrigger className="flex items-center py-2 gap-2 whitespace-nowrap group text-sm text-white rounded-lg px-2 bg-[#194185]">
+        <CircleUser className="w-4 h-4" />
+        <span>Sign Up</span>
+        <ChevronDown className="w-4 h-4 transition-transform duration-200 ease-in-out group-data-[state=open]:rotate-180" />
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="text-[#194185] font-semibold min-w-sm p-4">
+        <LoginForm />
+      </DropdownMenuContent>
     </DropdownMenu>
+
     <Link href="/cart">
     <Button className="cursor-pointer" variant={"outline"} size={'icon'} ><ShoppingCart /></Button>
     </Link>
